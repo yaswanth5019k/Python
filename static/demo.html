@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Platform Demo</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .feature {
+            padding: 25px;
+            border: 2px solid #e1e8ed;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .feature h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        .integration-examples {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        .demo-button {
+            background: #667eea;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+        }
+        .demo-button:hover {
+            background: #5a6fd8;
+        }
+        .status {
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💼 Investor-Entrepreneur Platform Chatbot</h1>
+        <p style="text-align: center; font-size: 18px; color: #666; margin-bottom: 40px;">
+            A universal chatbot that can be integrated into any website framework
+        </p>
+
+        <div class="features">
+            <div class="feature">
+                <h3>🎯 For Investors</h3>
+                <p>Find promising startups, conduct due diligence, track portfolio performance, and discover market trends.</p>
+            </div>
+            <div class="feature">
+                <h3>🚀 For Entrepreneurs</h3>
+                <p>Secure funding, get pitch feedback, connect with investors, and receive business guidance.</p>
+            </div>
+            <div class="feature">
+                <h3>🔄 Universal Integration</h3>
+                <p>Works with React, Vue, Angular, WordPress, PHP, Django, Rails - any framework!</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin: 40px 0;">
+            <h2>🧪 Test the Chatbot</h2>
+            <p>Try these example queries:</p>
+            <button class="demo-button" onclick="testMessage('I am an investor looking for AI startups')">
+                🔍 Investor Query
+            </button>
+            <button class="demo-button" onclick="testMessage('I need funding for my fintech startup')">
+                💰 Entrepreneur Query
+            </button>
+            <button class="demo-button" onclick="testMessage('Help me prepare my pitch deck')">
+                📊 Pitch Help
+            </button>
+            <button class="demo-button" onclick="testMessage('Schedule a meeting with investors')">
+                📅 Schedule Meeting
+            </button>
+        </div>
+
+        <div id="test-results"></div>
+
+        <div class="integration-examples">
+            <h2>🔗 Integration Examples</h2>
+            
+            <h3>1. JavaScript Widget (Add to any website)</h3>
+            <div class="code-block">
+                &lt;!-- Add this ONE line to any website --&gt;<br>
+                &lt;script src="http://localhost:8080/widget.js"&gt;&lt;/script&gt;
+            </div>
+
+            <h3>2. Iframe Embed (No coding required)</h3>
+            <div class="code-block">
+                &lt;iframe src="http://localhost:8080/chat-iframe" <br>
+                        width="350" height="500"<br>
+                        style="border: none;"&gt;&lt;/iframe&gt;
+            </div>
+
+            <h3>3. REST API (For developers)</h3>
+            <div class="code-block">
+                // JavaScript example<br>
+                const response = await fetch('http://localhost:8080/api/chat', {<br>
+                &nbsp;&nbsp;method: 'POST',<br>
+                &nbsp;&nbsp;headers: { 'Content-Type': 'application/json' },<br>
+                &nbsp;&nbsp;body: JSON.stringify({ message: 'Hello' })<br>
+                });
+            </div>
+
+            <h3>4. Framework Examples</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                <div style="background: white; padding: 15px; border-radius: 8px; text-align: center;">
+                    <strong>React/Next.js</strong><br>
+                    <small>useState + fetch</small>
+                </div>
+                <div style="background: white; padding: 15px; border-radius: 8px; text-align: center;">
+                    <strong>Vue.js</strong><br>
+                    <small>v-model + axios</small>
+                </div>
+                <div style="background: white; padding: 15px; border-radius: 8px; text-align: center;">
+                    <strong>Angular</strong><br>
+                    <small>HttpClient service</small>
+                </div>
+                <div style="background: white; padding: 15px; border-radius: 8px; text-align: center;">
+                    <strong>WordPress</strong><br>
+                    <small>Widget script tag</small>
+                </div>
+                <div style="background: white; padding: 15px; border-radius: 8px; text-align: center;">
+                    <strong>PHP</strong><br>
+                    <small>cURL or file_get_contents</small>
+                </div>
+                <div style="background: white; padding: 15px; border-radius: 8px; text-align: center;">
+                    <strong>Django</strong><br>
+                    <small>requests library</small>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; padding: 30px; background: #f8f9fa; border-radius: 10px;">
+            <h2>🚀 Getting Started</h2>
+            <p><strong>Step 1:</strong> Run <code>./setup.sh</code> to install dependencies</p>
+            <p><strong>Step 2:</strong> Run <code>source env.sh</code> to activate the environment</p>
+            <p><strong>Step 3:</strong> Run <code>python3 chatbot.py</code> to start the server</p>
+            <p><strong>Step 4:</strong> Integrate into your website using any method above</p>
+            <p><strong>Step 5:</strong> Customize responses and add your own business logic</p>
+        </div>
+    </div>
+
+    <script>
+        async function testMessage(message) {
+            const resultsDiv = document.getElementById('test-results');
+            resultsDiv.innerHTML = '<div class="status">🤖 Testing chatbot response...</div>';
+
+            try {
+                const response = await fetch('http://localhost:8080/api/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        message: message
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                
+                resultsDiv.innerHTML = `
+                    <div class="status success">
+                        <h3>✅ Chatbot Response</h3>
+                        <p><strong>Query:</strong> "${message}"</p>
+                        <p><strong>User Type:</strong> ${data.user_type || 'N/A'}</p>
+                        <p><strong>Intent:</strong> ${data.intent || 'N/A'}</p>
+                        <div style="background: white; padding: 15px; border-radius: 8px; margin-top: 15px; text-align: left;">
+                            <strong>Response:</strong><br>
+                            ${data.response.replace(/\n/g, '<br>')}
+                        </div>
+                        ${data.suggestions ? `
+                            <div style="margin-top: 15px;">
+                                <strong>Suggestions:</strong><br>
+                                ${data.suggestions.slice(0, 3).map(s => `• ${s}`).join('<br>')}
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            } catch (error) {
+                resultsDiv.innerHTML = `
+                    <div class="status error">
+                        <h3>❌ Connection Error</h3>
+                        <p>Could not connect to chatbot server at http://localhost:8080</p>
+                        <p><strong>Error:</strong> ${error.message}</p>
+                        <p><strong>Solution:</strong> Make sure the chatbot server is running by executing:</p>
+                        <div class="code-block">source env.sh<br>python3 chatbot.py</div>
+                    </div>
+                `;
+            }
+        }
+
+        // Check if server is running on page load
+        window.addEventListener('load', async () => {
+            try {
+                const response = await fetch('http://localhost:8080/api/health');
+                if (response.ok) {
+                    document.getElementById('test-results').innerHTML = `
+                        <div class="status success">
+                            ✅ Chatbot server is running! Try the test buttons above.
+                        </div>
+                    `;
+                } else {
+                     document.getElementById('test-results').innerHTML = `
+                    <div class="status error">
+                        ⚠️ Chatbot server is not running. Start it with: <code>source env.sh && python3 chatbot.py</code>
+                    </div>
+                `;
+                }
+            } catch (error) {
+                document.getElementById('test-results').innerHTML = `
+                    <div class="status error">
+                        ⚠️ Chatbot server is not running. Start it with: <code>source env.sh && python3 chatbot.py</code>
+                    </div>
+                `;
+            }
+        });
+    </script>
+
+    <!-- This demonstrates the widget integration -->
+    <!-- Uncomment the line below to see the widget in action -->
+    <!-- <script src="http://localhost:8080/widget.js"></script> -->
+</body>
+</html>
